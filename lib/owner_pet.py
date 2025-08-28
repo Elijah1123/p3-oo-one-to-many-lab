@@ -31,3 +31,24 @@ class Pet:
         self.owner = owner
 
         Pet.all.append(self)
+
+
+# create some owners
+o1 = Owner("Elijah")
+o2 = Owner("Mary")
+
+# create some pets
+p1 = Pet("Buddy", "dog", o1)
+p2 = Pet("Kitty", "cat", o1)
+p3 = Pet("Tweety", "bird", o2)
+
+# add a pet later
+p4 = Pet("Rex", "dog")
+o2.add_pet(p4)
+
+# print owners and their pets
+print(f"{o1.name}'s pets: {[pet.name for pet in o1.pets()]}")
+print(f"{o2.name}'s pets: {[pet.name for pet in o2.pets()]}")
+
+# test get_sorted_pets
+print(f"{o1.name}'s sorted pets: {[pet.name for pet in o1.get_sorted_pets()]}")
